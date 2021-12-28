@@ -4,7 +4,8 @@ WORKDIR /home/gradle/src
 RUN gradle bootJar --no-daemon
 
 
-FROM rtfpessoa/ubuntu-jdk8
+##FROM rtfpessoa/ubuntu-jdk8
+FROM parrotstream/ubuntu-java:latest
 EXPOSE 8080
 RUN mkdir /app
 COPY --from=builder /home/gradle/src/build/libs/*.jar /app/spring-boot-application.jar
